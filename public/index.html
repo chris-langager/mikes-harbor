@@ -6,7 +6,7 @@
     <title>Mikes Harbor</title>
     <link rel="stylesheet" href="style.css" />
 
-    <script src="index.js" defer></script>
+    <script src="app.js" defer></script>
   </head>
   <body>
     <div class="app">
@@ -16,12 +16,12 @@
           <h3>for boats and stuff</h3>
         </div>
       </div>
-      <div class="entries"></div>
+      <div id="entries" class="entries"></div>
 
       <div class="new-entry">
-        <form>
-          <input type="text" />
-          <input type="number" />
+        <form id="new-entry-form">
+          <input type="text" placeholder="write something..." autocomplete="off" />
+          <input type="number" autocomplete="off" />
           <button type="submit">submit</button>
         </form>
       </div>

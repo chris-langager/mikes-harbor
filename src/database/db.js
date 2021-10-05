@@ -1,5 +1,4 @@
-import { IMain, IDatabase } from 'pg-promise';
-import * as pgPromise from 'pg-promise';
+import pgPromise from 'pg-promise';
 import { ENV } from '../env';
 
 const pgp = pgPromise({
