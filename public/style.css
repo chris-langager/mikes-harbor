@@ -13,8 +13,9 @@
 }
 
 .app {
-  width: 400px;
+  width: 365px;
   margin: auto;
+  padding: 8px;
 }
 
 .entries {
