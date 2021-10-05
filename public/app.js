@@ -27,21 +27,28 @@ async function newEntrySubmitted(e) {
   newEntryFormElement.reset();
 }
 
+async function deleteButtonClicked(e, id) {
+  e.preventDefault();
+  await deleteEntry(id);
+  document.getElementById(`entry-${id}`).remove();
+}
+
 function entryToElement(entry) {
-  const { dateCreated, someTextField, someNumberField } = entry;
-  return htmlToElement(`<div class="entry">
+  const { id, dateCreated, someTextField, someNumberField } = entry;
+  return htmlToElement(`<div id="entry-${id}" class="entry">
         <div class="top">   
             <div class="text">
                 ${someTextField}
             </div>
-            <div class="date-created">
-                ${new Date(dateCreated).toLocaleString()}
-            </div>
+            <div class="delete" onclick="deleteButtonClicked(event, ${id})">x</div>
         </div>
 
         <div class="bottom">  
             <div class="number">
                 ${someNumberField}
+            </div>
+            <div class="date-created">
+                ${new Date(dateCreated).toLocaleString()}
             </div>
         </div>
     </div>`);
@@ -63,6 +70,16 @@ async function createEntry(entry) {
       throw new Error('error creating entry');
     }
     return response.json();
+  });
+}
+
+async function deleteEntry(id) {
+  await fetch(`/entries/${id}`, {
+    method: 'DELETE',
+  }).then((response) => {
+    if (response.status !== 200) {
+      throw new Error('error deleting entry');
+    }
   });
 }
 

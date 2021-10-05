@@ -19,18 +19,16 @@ app.get('/entries', async (req, res, next) => {
 });
 
 app.post('/entries', async (req, res, next) => {
-  const { someTextField, someNumberField } = req.body;
-  if (!someTextField || !someNumberField) {
-    res.statusCode = 400;
-    res.json({
-      code: 400,
-      message: 'missing required properties',
-    });
-    return;
-  }
+  const someTextField = req.body.someTextField || 'n/a';
+  const someNumberField = req.body.someNumberField || 0;
 
   const entry = await db.createEntry({ someTextField, someNumberField });
   return res.json(entry);
+});
+
+app.delete('/entries/:id', async (req, res, next) => {
+  await db.deleteEntry(req.params.id);
+  res.json({});
 });
 
 app.use(express.static('public'));

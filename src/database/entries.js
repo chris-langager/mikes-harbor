@@ -20,6 +20,14 @@ export async function createEntry(entry) {
   return parseRow(row);
 }
 
+export async function deleteEntry(id) {
+  const query = `
+      DELETE FROM entries 
+      WHERE id=$(id);`;
+
+  await db.none(query, { id });
+}
+
 function parseRow(row) {
   return {
     id: row.id,

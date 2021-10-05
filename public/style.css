@@ -49,3 +49,35 @@
 .entry .date-created {
   font-size: 0.8rem;
 }
+
+.entry .delete {
+  cursor: pointer;
+}
+
+.new-entry {
+  padding: 24px 0;
+}
+
+#new-entry-form {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+#new-entry-form input {
+  font-size: 1.5rem;
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: black;
+}
+
+#new-entry-form input[type='text'] {
+  width: 50%;
+}
+#new-entry-form input[type='number'] {
+  width: 25%;
+}
+
+#new-entry-form button {
+  padding: 20px;
+}
