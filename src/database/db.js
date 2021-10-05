@@ -6,4 +6,9 @@ const pgp = pgPromise({
   // Initialization Options
 });
 
-export const db = pgp(ENV.POSTGRES_DATABASE_URL);
+export const db = pgp({
+  connectionString: ENV.POSTGRES_DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
