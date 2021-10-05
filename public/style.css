@@ -1,0 +1,18 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  padding: 8px;
+}
+
+.title h1 {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.app {
+  width: 800px;
+  margin: auto;
+}

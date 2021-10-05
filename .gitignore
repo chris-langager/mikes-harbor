@@ -1,0 +1,10 @@
+.vscode
+node_modules
+.idea
+build
+.env
+.terraform
+
+dev.yml
+.dev
+.shadowenv.d
