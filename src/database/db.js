@@ -7,5 +7,5 @@ const pgp = pgPromise({
 });
 
 export const db = pgp({
-  connectionString: ENV.POSTGRES_DATABASE_URL + '?ssl=true',
+  connectionString: ENV.POSTGRES_DATABASE_URL,
 });
